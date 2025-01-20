@@ -6,18 +6,44 @@ This project demonstrates an ETL (Extract, Transform, Load) pipeline.
 
 ## **Project Structure**
 ```
-├── src
-│   ├── extract.py        # Code for extracting data from APIs
-│   ├── transform.py      # Code for cleaning and transforming the data
-│   ├── load.py           # Code for loading data into PostgreSQL
-│   ├── config.py         # Configuration for API keys, database credentials
-│   └── utils.py          # Utility functions for the ETL process
-├── sql
-│   └── schema.sql        # SQL script for creating database schema
-├── notebooks
-│   └── analysis.ipynb    # Jupyter notebook for data exploration and analysis
-├── requirements.txt      # Python dependencies
-├── README.md             # Project documentation
+etl-example/
+├── config/
+│   ├── __init__.py
+│   └── db_config.py
+├── data/
+│   ├── output/
+│   ├── processed/
+│   └── raw/
+├── docs/
+│   └── flowcharts/
+│       └── etl_flowchart.md
+├── etl/
+│   ├── extract/
+│   │   ├── __init__.py
+│   │   ├── extract.py
+│   ├── load/
+│   │   ├── __init__.py
+│   │   ├── load.py
+│   ├── sql/
+│   ├── transform/
+│   │   ├── __init__.py
+│   │   ├── transform.py
+│   └── __init__.py
+├── notebooks/
+│   └── exploratory_analysis.ipynb
+├── scripts/
+│   ├── __init__.py
+│   └── run_etl.py
+├── tests/
+│   ├── __init__.py
+├── .env
+├── .env.dev
+├── .env.test
+├── .gitignore
+├── README.md
+├── requirements-setup.txt
+├── requirements.txt
+└── setup.py
 ```
 
 ## **Technologies Used**
