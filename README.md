@@ -6,7 +6,7 @@ This project demonstrates an ETL (Extract, Transform, Load) pipeline.
 
 ## **Project Structure**
 ```
-etl-example/
+df_capstone/
 ├── config/
 │   ├── __init__.py
 │   └── db_config.py
