@@ -104,10 +104,9 @@ medium_etl/
 
 4. Set up the environment variables:
    - Create a `.env` file in the root directory with the following key:
-     ```bash
+   
     API_KEY = <your_api_key>
     DATABASE_URL=postgresql://<username>:<password>@<host>:<port>/<dbname>
-     ```
 
 5. Set up the PostgreSQL database:
    - Run the SQL script to create the schema:
