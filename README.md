@@ -39,6 +39,7 @@ df_capstone/
 ├── .env
 ├── .env.dev
 ├── .env.test
+├── app.py
 ├── .gitignore
 ├── README.md
 ├── requirements-setup.txt
@@ -90,7 +91,7 @@ df_capstone/
 
 2. Create and activate a virtual environment:
    ```bash
-   python3 -m venv venv
+   python3 -m venv .venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
@@ -114,9 +115,9 @@ df_capstone/
 
 6. Run the ETL pipeline:
    ```bash
-   python src/extract.py
-   python src/transform.py
-   python src/load.py
+   python etl/extract.py
+   python etl/transform.py
+   python etl/load.py
    ```
 
 ### **3. Running Analysis**
