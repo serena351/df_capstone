@@ -1,8 +1,8 @@
-# **ETL Pipeline**
+# **Medium.com ETL Pipeline**
 
 ## **Project Overview**
 
-This project demonstrates an ETL (Extract, Transform, Load) pipeline.
+This project demonstrates an ETL (Extract, Transform, Load) pipeline. The data is extracted from the Medium API available on `rapidapi.com`. The goal of this project is to provide insights on user following numbers and article data.
 
 ## **Project Structure**
 ```
@@ -40,6 +40,7 @@ df_capstone/
 ├── .env.dev
 ├── .env.test
 ├── .gitignore
+├── app.py
 ├── README.md
 ├── requirements-setup.txt
 ├── requirements.txt
@@ -49,27 +50,28 @@ df_capstone/
 ## **Technologies Used**
 - **Programming Language:** Python
 - **Database:** PostgreSQL
-- **Data Sources:**
-  - **API:**
+- **Data Source:**
+  - **Medium API:**
 
 - **Python Libraries:**
   - `requests`: For interacting with APIs.
   - `pandas`: For data manipulation and cleaning.
-  - `SQLAlchemy`: For database interaction.
+  - `sqlalchemy`: For database interaction.
   - `numpy`: For numerical computations.
   - `dotenv`: To handle environment variables (API keys, DB credentials).
 
 ## **ETL Pipeline Breakdown**
 
 ### **1. Data Extraction**
-- 
+- Article data 
+- User data 
   
 ### **2. Data Transformation**
 - Handle missing data and clean the dataset.
-- Create additional features.
+- Create additional features / add insights.
 
 ### **3. Data Loading**
-- Store the cleaned and transformed data into a PostgreSQL database.
+- Store the cleaned and transformed data into the `pagila` PostgreSQL database.
 
 ### **4. Data Analysis**
 - Basic exploratory analysis using SQL queries or in a Jupyter notebook.
@@ -77,9 +79,9 @@ df_capstone/
 ## **How to Run the Project**
 
 ### **1. Prerequisites**
-- **Python** (version 3.7 or above)
+- **Python** (version 3.11 or above)
 - **PostgreSQL** (with database and user access)
-- API keys
+- API keys for RapidAPI
 
 ### **2. Setup Instructions**
 
@@ -114,9 +116,9 @@ df_capstone/
 
 6. Run the ETL pipeline:
    ```bash
-   python src/extract.py
-   python src/transform.py
-   python src/load.py
+   python etl/extract.py
+   python etl/transform.py
+   python etl/load.py
    ```
 
 ### **3. Running Analysis**
