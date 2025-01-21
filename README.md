@@ -39,6 +39,7 @@ df_capstone/
 ├── .env
 ├── .env.dev
 ├── .env.test
+├── app.py
 ├── .gitignore
 ├── app.py
 ├── README.md
@@ -92,7 +93,7 @@ df_capstone/
 
 2. Create and activate a virtual environment:
    ```bash
-   python3 -m venv venv
+   python3 -m venv .venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
