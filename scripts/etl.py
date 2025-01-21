@@ -10,7 +10,7 @@ load_dotenv()
 
 # Extract data from the API
 
-url = "https://medium2.p.rapidapi.com/user/id_for/craftingcode"
+url = "https://medium2.p.rapidapi.com/user/5b7f7f4be1d3"
 
 headers = {
 	"x-rapidapi-key": "043c43e953msh1eb760651409ee1p1d655fjsn4067b6421bd8",
@@ -24,7 +24,7 @@ data = response.json()
 transformed_data = {
     "user_id": data.get("id"),
     "username": data.get("username"),
-    "followers_count": data.get("followersCount")
+    "followers_count": data.get("followers_count")
 }
 
 # Load the data into PostgreSQL using SQLAlchemy
@@ -32,12 +32,12 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 
 # Create an engine and metadata
 engine = create_engine(DATABASE_URL)
-metadata = MetaData()
+metadata = MetaData(schema='student')
 
 # Define the users table
-users_table = Table(
-    'users', metadata,
-    Column('user_id', String, primary_key=True),
+followers_table = Table(
+    'ss_capstone', metadata,
+    Column('user_id', String),
     Column('username', String),
     Column('followers_count', Integer)
 )
@@ -50,7 +50,7 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 # Insert data into the table
-insert_query = users_table.insert().values(
+insert_query = followers_table.insert().values(
     user_id=transformed_data["user_id"],
     username=transformed_data["username"],
     followers_count=transformed_data["followers_count"]
@@ -62,3 +62,5 @@ session.commit()
 
 # Close the session
 session.close()
+
+print("Data inserted successfully and table created in schema 'student'.")
