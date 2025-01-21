@@ -2,6 +2,7 @@ import requests
 import json
 from sqlalchemy import create_engine, Table, Column, String, Integer, MetaData
 from sqlalchemy.orm import sessionmaker
+import datetime
 import os
 from dotenv import load_dotenv
 
@@ -10,7 +11,7 @@ load_dotenv()
 
 # Extract data from the API
 
-url = "https://medium2.p.rapidapi.com/user/5b7f7f4be1d3"
+url = "https://medium2.p.rapidapi.com/user/b6d641be1066"
 
 headers = {
 	"x-rapidapi-key": "043c43e953msh1eb760651409ee1p1d655fjsn4067b6421bd8",
@@ -36,7 +37,8 @@ metadata = MetaData(schema='student')
 
 # Define the users table
 followers_table = Table(
-    'ss_capstone', metadata,
+    'serena_capstone', metadata,
+    Column('timestamp', String, primary_key=True),
     Column('user_id', String),
     Column('username', String),
     Column('followers_count', Integer)
@@ -51,6 +53,7 @@ session = Session()
 
 # Insert data into the table
 insert_query = followers_table.insert().values(
+    timestamp=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
     user_id=transformed_data["user_id"],
     username=transformed_data["username"],
     followers_count=transformed_data["followers_count"]
