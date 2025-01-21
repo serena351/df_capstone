@@ -17,35 +17,16 @@ medium_etl/
 ├── docs/
 │   └── flowcharts/
 │       └── etl_flowchart.md
-├── etl/
-│   ├── extract/
-│   │   ├── __init__.py
-│   │   ├── extract.py
-│   ├── load/
-│   │   ├── __init__.py
-│   │   ├── load.py
-│   ├── sql/
-│   ├── transform/
-│   │   ├── __init__.py
-│   │   ├── transform.py
-│   └── __init__.py
 ├── notebooks/
 │   └── exploratory_analysis.ipynb
 ├── scripts/
-│   ├── __init__.py
-│   └── run_etl.py
+│   └── etl.py
 ├── tests/
-│   ├── __init__.py
-├── .env
-├── .env.dev
-├── .env.test
-├── app.py
+│   └── __init__.py
 ├── .gitignore
 ├── app.py
 ├── README.md
-├── requirements-setup.txt
-├── requirements.txt
-└── setup.py
+└── requirements.txt
 ```
 
 ## **Technologies Used**
@@ -58,7 +39,6 @@ medium_etl/
   - `requests`: For interacting with APIs.
   - `pandas`: For data manipulation and cleaning.
   - `sqlalchemy`: For database interaction.
-  - `numpy`: For numerical computations.
   - `dotenv`: To handle environment variables (API keys, DB credentials).
 
 ## **ETL Pipeline Breakdown**
@@ -82,7 +62,7 @@ medium_etl/
 ### **1. Prerequisites**
 - **Python** (version 3.11 or above)
 - **PostgreSQL** (with database and user access)
-- API key for RapidAPI
+- API key for Medium API
 
 ### **2. Setup Instructions**
 
@@ -116,9 +96,7 @@ medium_etl/
 
 6. Run the ETL pipeline:
    ```bash
-   python etl/extract.py
-   python etl/transform.py
-   python etl/load.py
+   python scripts/etl.py
    ```
 
 ### **3. Running Analysis**
