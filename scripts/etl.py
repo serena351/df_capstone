@@ -10,7 +10,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Extract data from the API
-
 url = "https://medium2.p.rapidapi.com/user/b6d641be1066"
 
 headers = {
@@ -44,7 +43,7 @@ followers_table = Table(
     Column('followers_count', Integer)
 )
 
-# Create the table if it doesn't exist
+# Create the table if it doesn't already exist
 metadata.create_all(engine)
 
 # Create a session

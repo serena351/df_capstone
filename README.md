@@ -17,12 +17,9 @@ medium_etl/
 ├── docs/
 │   └── flowcharts/
 │       └── etl_flowchart.md
-├── notebooks/
-│   └── exploratory_analysis.ipynb
 ├── scripts/
+│   ├── testing.py
 │   └── etl.py
-├── tests/
-│   └── __init__.py
 ├── .gitignore
 ├── app.py
 ├── README.md
@@ -54,6 +51,9 @@ medium_etl/
 ### **3. Data Loading**
 - Store the cleaned and transformed data into the `pagila` PostgreSQL database.
 
-### **4. Data Analysis**
-- Basic exploratory analysis using SQL queries or in a Jupyter notebook.
+To run the ETL pipeline:
+
+```bash
+python scripts/etl.py
+```
 
