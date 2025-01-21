@@ -12,8 +12,9 @@ load_dotenv()
 # Extract data from the API
 url = "https://medium2.p.rapidapi.com/user/b6d641be1066"
 
+API_KEY = os.getenv("API_KEY")
 headers = {
-	"x-rapidapi-key": "043c43e953msh1eb760651409ee1p1d655fjsn4067b6421bd8",
+	"x-rapidapi-key": API_KEY,
 	"x-rapidapi-host": "medium2.p.rapidapi.com"
 }
 
