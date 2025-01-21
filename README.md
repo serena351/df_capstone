@@ -6,7 +6,7 @@ This project demonstrates an ETL (Extract, Transform, Load) pipeline. The data i
 
 ## **Project Structure**
 ```
-df_capstone/
+medium_etl/
 ├── config/
 │   ├── __init__.py
 │   └── db_config.py
@@ -64,8 +64,8 @@ df_capstone/
 ## **ETL Pipeline Breakdown**
 
 ### **1. Data Extraction**
-- Article data 
-- User data 
+- Article data: article responses, response count, voter count, last modified date and time. 
+- User data: followers count.
   
 ### **2. Data Transformation**
 - Handle missing data and clean the dataset.
@@ -82,13 +82,13 @@ df_capstone/
 ### **1. Prerequisites**
 - **Python** (version 3.11 or above)
 - **PostgreSQL** (with database and user access)
-- API keys for RapidAPI
+- API key for RapidAPI
 
 ### **2. Setup Instructions**
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/serena351/df_capstone
+   git clone https://github.com/serena351/medium_etl
    ```
 
 2. Create and activate a virtual environment:
@@ -104,7 +104,7 @@ df_capstone/
 
 4. Set up the environment variables:
    - Create a `.env` file in the root directory with the following key:
-     ```
+     ```bash
     API_KEY = <your_api_key>
     DATABASE_URL=postgresql://<username>:<password>@<host>:<port>/<dbname>
      ```
