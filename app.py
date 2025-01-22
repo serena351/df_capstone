@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
+API_KEY = os.getenv("API_KEY")
 
 st.title("Medium Followers")
 
@@ -16,7 +17,6 @@ with tab1:
     st.write("Input a Medium username in lowercase with no spaces to get the user's information.")
     username = st.text_input("Enter a username: ", "timdennings")
     url = f"https://medium2.p.rapidapi.com/user/id_for/{username}"
-    API_KEY = os.getenv("API_KEY")
     headers = {
 	    "x-rapidapi-key": API_KEY,
 	    "x-rapidapi-host": "medium2.p.rapidapi.com"
