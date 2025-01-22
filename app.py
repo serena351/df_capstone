@@ -23,7 +23,8 @@ with tab1:
     }
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
-        userid = response.json()
+        userid = response.json()['id']
+	st.write(userid)
     else:
         st.error('Response not found.')
     
