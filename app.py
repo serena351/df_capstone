@@ -18,7 +18,7 @@ with tab1:
     username = str(st.text_input("Enter a username: ", "timdenning"))
     url = f"https://medium2.p.rapidapi.com/user/id_for/{username}"
     headers = {
-	    "x-rapidapi-key": API_KEY,
+	    "x-rapidapi-key": st.secrets["API_KEY"],
 	    "x-rapidapi-host": "medium2.p.rapidapi.com"
     }
     response = requests.get(url, headers=headers)
