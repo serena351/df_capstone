@@ -11,11 +11,11 @@ API_KEY = os.getenv("API_KEY")
 
 st.title("Medium Followers")
 
-tab1, tab2 = st.tabs(["User Info", "Tim Dennings Followers"])
+tab1, tab2 = st.tabs(["User Info", "Tim Denning Followers"])
 
 with tab1:
     st.write("Input a Medium username in lowercase with no spaces to get the user's information.")
-    username = st.text_input("Enter a username: ", "timdennings")
+    username = str(st.text_input("Enter a username: ", "timdenning"))
     url = f"https://medium2.p.rapidapi.com/user/id_for/{username}"
     headers = {
 	    "x-rapidapi-key": API_KEY,
