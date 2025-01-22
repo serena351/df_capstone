@@ -50,11 +50,20 @@ medium_etl/
 ### **3. Data Loading**
 - Store the cleaned and transformed data into the `pagila` PostgreSQL database.
 
-To deploy the ETL pipeline, run:
+## **Extraction Script Instructions**
+1. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. To deploy the ETL pipeline, given that you have the `.env` file, run:
 
-```bash
-python scripts/etl.py
-```
+   ```bash
+   python scripts/etl.py
+   ```
+
+## **Cron Details**
+Run script every 3 hours.
+
 ## **Streamlit App**
 The app can be accessed at [medium-followers](https://medium-followers.streamlit.app/):
 - Get user data by typing in a username of your choice.
