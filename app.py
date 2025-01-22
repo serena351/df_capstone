@@ -6,8 +6,8 @@ import altair as alt
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
-API_KEY = os.getenv("API_KEY")
+#load_dotenv()
+#API_KEY = os.getenv("API_KEY")
 
 st.title("Medium Followers")
 
@@ -18,13 +18,13 @@ with tab1:
     username = str(st.text_input("Enter a username: ", "timdenning"))
     url = f"https://medium2.p.rapidapi.com/user/id_for/{username}"
     headers = {
-	    "x-rapidapi-key": API_KEY,
+	    "x-rapidapi-key": "043c43e953msh1eb760651409ee1p1d655fjsn4067b6421bd8",
 	    "x-rapidapi-host": "medium2.p.rapidapi.com"
     }
     response = requests.get(url, headers=headers)
     if response.status_code == 200:
-	    userid = response.json()['id']
-	    st.write(userid)
+        userid = response.json()['id']
+        st.write(userid)
     else:
 	    st.error('Response not found.')
     
