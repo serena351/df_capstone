@@ -6,6 +6,14 @@ import altair as alt
 
 st.title("Medium Followers")
 
+tab1, tab2 = st.tabs(["User Info", "Tim Dennings Followers"])
+
+with tab1:
+    st.write("Input a Medium username in lowercase with no spaces to get the user's information.")
+    
+with tab2:
+    st.write("A chart of Tim Dennings followers over time.")
+
 # user_input = st.text_input("Enter a username: ", "AAPL")
 
 # response = requests.get(f"https://randomapi.co/api/{user_input.lower()}")
