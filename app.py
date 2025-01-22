@@ -13,7 +13,7 @@ engine = create_engine(DATABASE_URL)
 metadata = MetaData(schema='student')
 
 # Reflect the existing table
-followers_table = Table('ss_capstone', metadata, autoload_with=engine)
+followers_table = Table('serena_capstone', metadata, autoload_with=engine)
 
 # Create a session
 Session = sessionmaker(bind=engine)
