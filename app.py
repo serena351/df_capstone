@@ -88,9 +88,8 @@ with tab3:
     
     if response3.status_code == 200:
         articles = response3.json()['top_articles']
-        article_ids = [value for key, value in articles.items()]
     
-        for article_id in article_ids:
+        for article_id in articles:
             url4 = f"https://medium2.p.rapidapi.com/article/{article_id}"  
             response4 = requests.get(url4, headers=headers)
             
