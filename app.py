@@ -56,7 +56,7 @@ with tab1:
             'following_count': data.get('following_count'),
             'top_writer_in': data.get('top_writer_in')
         }
-        df = pd.DataFrame(user_info, index=[0])
+        df = pd.DataFrame(user_info)
         st.image(image_url, width=100)
         st.write(df)
     else:
