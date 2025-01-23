@@ -70,7 +70,7 @@ with tab2:
     dftim['timestamp'] = pd.to_datetime(dftim['timestamp'])
     chart = alt.Chart(dftim).mark_line().encode(
         x='timestamp:T',
-        y=alt.Y('followers_count:Q', scale=alt.Scale(domain=[327000, 328000]))
+        y=alt.Y('followers_count:Q', scale=alt.Scale(domain=[327250, 327750]))
     ).properties(
         width=600,
         height=400
