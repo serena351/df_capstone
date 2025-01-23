@@ -62,7 +62,7 @@ medium_etl/
    ```
 
 ## **Cron Details**
-Run script every 3 hours.
+Run script every 6 hours.
 
 ## **Streamlit App**
 The app can be accessed at [medium-followers](https://medium-followers.streamlit.app/):
