@@ -23,7 +23,7 @@ st.sidebar.title("About")
 st.sidebar.info("""
     Medium is an online publishing platform where people (e.g. software developers or product designers) can read and write articles.            
     This website allows you to get information about Medium users, 
-    including their follower count and the number of articles in which they are a top writer. 
+    including their follower count and their top 10 articles. 
     You can also view a chart of Tim Denning's followers over time - he is currently one of the most followed authors on Medium.
     (Website best viewed in light mode.)
 """)
@@ -38,29 +38,32 @@ with tab1:
     st.subheader("Get User Information")
     st.write("Type in a Medium username (lowercase, no spaces) to get the user's information.")
     username = str(st.text_input("Enter a username: ", "timdenning"))
-    url = f"https://medium2.p.rapidapi.com/user/id_for/{username}"
-    headers = {
-	    "x-rapidapi-key": st.secrets["API_KEY"],
-	    "x-rapidapi-host": "medium2.p.rapidapi.com"
-    }
-    response = requests.get(url, headers=headers)
-    if response.status_code == 200:
-        userid = response.json()['id']
-        url2 = f"https://medium2.p.rapidapi.com/user/{userid}"
-        response2 = requests.get(url2, headers=headers)
-        data = response2.json()
-        image_url = data.get('image_url')
-        user_info = {
-            'fullname': [data.get('fullname')],
-            'followers_count': [data.get('followers_count')],
-            'following_count': [data.get('following_count')],
-            'pub_following': [data.get('publication_following_count')],
+    submit_button = st.button("Submit")
+    
+    if submit_button:
+        url = f"https://medium2.p.rapidapi.com/user/id_for/{username}"
+        headers = {
+            "x-rapidapi-key": st.secrets["API_KEY"],
+            "x-rapidapi-host": "medium2.p.rapidapi.com"
         }
-        df = pd.DataFrame(user_info)
-        st.image(image_url, width=100)
-        st.write(df)
-    else:
-	    st.error('Response not found.')
+        response = requests.get(url, headers=headers)
+        if response.status_code == 200:
+            userid = response.json()['id']
+            url2 = f"https://medium2.p.rapidapi.com/user/{userid}"
+            response2 = requests.get(url2, headers=headers)
+            data = response2.json()
+            image_url = data.get('image_url')
+            user_info = {
+                'fullname': [data.get('fullname')],
+                'followers_count': [data.get('followers_count')],
+                'following_count': [data.get('following_count')],
+                'pub_following': [data.get('publication_following_count')],
+            }
+            df = pd.DataFrame(user_info)
+            st.image(image_url, width=100)
+            st.write(df)
+        else:
+            st.error('Response not found.')
     
 with tab2:
     st.write("A chart of Tim Denning's followers over time:")
