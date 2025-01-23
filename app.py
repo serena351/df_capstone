@@ -83,25 +83,29 @@ with tab2:
 with tab3:
     st.subheader("Get Article Information")
     st.caption("This section displays the top 10 articles of the user chosen in the first tab.")
-    # url3 = f"https://medium2.p.rapidapi.com/user/{userid}/top_articles"
-    # response3 = requests.get(url3, headers=headers)
+    url3 = f"https://medium2.p.rapidapi.com/user/{userid}/top_articles"
+    response3 = requests.get(url3, headers=headers)
     
-    # if response3.status_code == 200:
-    #     articles = response3.json()['top_articles']
-    #     article_ids = [value for key, value in articles.items()]
+    if response3.status_code == 200:
+        articles = response3.json()['top_articles']
+        article_ids = [value for key, value in articles.items()]
     
-    #     for article_id in article_ids:
-    #         url4 = f"https://medium2.p.rapidapi.com/article/{article_id}"  
-    #         response4 = requests.get(url4, headers=headers)
-    #         article_data = response4.json()
-    #         article_info = {
-    #         'title': article_data.get('title'),
-    #         'subtitle': article_data.get('subtitle'),
-    #         'claps': article_data.get('claps'),
-    #         }
-    #         st.write(article_info)
-    # else: 
-    #     st.error('Response not found.')
+        for article_id in article_ids:
+            url4 = f"https://medium2.p.rapidapi.com/article/{article_id}"  
+            response4 = requests.get(url4, headers=headers)
+            
+            if response4.status_code == 200:
+                article_data = response4.json()
+                article_info = {
+                    'title': article_data.get('title'),
+                    'subtitle': article_data.get('subtitle'),
+                    'claps': article_data.get('claps'),
+                }
+                st.write(article_info)
+            else:
+                st.error(f"Error fetching data for article {article_id}.")
+    else: 
+        st.error('Response not found.')
       
     
 # Close the session
