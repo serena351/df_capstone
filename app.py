@@ -54,7 +54,7 @@ with tab1:
             'fullname': [data.get('fullname')],
             'followers_count': [data.get('followers_count')],
             'following_count': [data.get('following_count')],
-            'top_writer_in': [data.get('top_writer_in')]
+            'pub_following': [data.get('publication_following_count')],
         }
         df = pd.DataFrame(user_info)
         st.image(image_url, width=100)
