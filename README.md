@@ -65,6 +65,6 @@ medium_etl/
 Run script every 6 hours.
 
 ## **Streamlit App**
-The app can be accessed at [medium-followers](https://medium-followers.streamlit.app/):
+<!-- The app can be accessed at [medium-followers](https://medium-followers.streamlit.app/): -->
 - Get user data by typing in a username of your choice.
 - Tim Dennings follower data from ETL pipeline displayed in a chart showing changes over time.
